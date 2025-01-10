@@ -9,7 +9,7 @@ def bootstrap_metrics(model, X_train, y_train, X_test, y_test, n_iterations=200)
     
     for _ in range(n_iterations):
         #Generating bootstrap samples
-        X_resampled, y_resampled = resample(X_train, y_train, random_state=42)
+        X_resampled, y_resampled = resample(X_train, y_train)
         
         # fitting the modeal for each generated sample
         model.fit(X_resampled, y_resampled)
@@ -22,10 +22,10 @@ def bootstrap_metrics(model, X_train, y_train, X_test, y_test, n_iterations=200)
         r2_scores.append(r2_score(y_test, y_pred_resampled))
     
     #Then we calculate the 95% CI
-    mse_lower = np.percentile(mse_scores, 2.5)
-    mse_upper = np.percentile(mse_scores, 97.5)
+    rmse_lower = np.percentile(mse_scores, 2.5)**0.5
+    rmse_upper = np.percentile(mse_scores, 97.5)**0.5
     
     r2_lower = np.percentile(r2_scores, 2.5)
     r2_upper = np.percentile(r2_scores, 97.5)
     
-    return (mse_lower, mse_upper), (r2_lower, r2_upper)
+    return (rmse_lower, rmse_upper), (r2_lower, r2_upper)
