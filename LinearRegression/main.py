@@ -5,7 +5,7 @@ import bootstrap
 from cross_validation import rmse_scorer, cross_validate_model
 
 # Load and preprocess the data
-X_train, X_test, y_train, y_test = preprocessing.load_and_preprocess_data('data/DataTransformed.csv')
+X_train, X_test, y_train, y_test, scaler = preprocessing.load_and_preprocess_data('data/DataTransformed.csv')
 
 # Training the lineal model and getting the metrics
 linear_model, mse, rmse, r2 = my_model.train_and_evaluate_model(X_train, X_test, y_train, y_test)
