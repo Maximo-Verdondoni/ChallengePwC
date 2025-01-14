@@ -8,7 +8,7 @@ This repository contains a machine learning model designed to predict salaries b
 - [Model Development](#model-development)
 - [API Usage](#api-usage)
 - [Installation](#installation)
-- [Testing](#testing)
+- [Functionality](#funcionality)
 - [License](#license)
 
 ## Model Overview
