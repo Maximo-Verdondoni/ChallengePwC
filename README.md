@@ -1,4 +1,4 @@
-# Predictive Salary Model
+# PwC Challenge for Data Scientist Jr
 
 This repository contains a machine learning model designed to predict salaries based on various employee features such as gender, education level, and years of experience. The model is built using **scikit-learn** and exposes a REST API through **FastAPI** to make predictions for new data.
 
