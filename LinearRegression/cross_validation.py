@@ -14,12 +14,19 @@ def cross_validate_model(model, X_train, y_train, cv=5, n_iterations=200):
     
     # Cross-validation for R-squared
     cv_r2_scores = cross_val_score(model, X_train, y_train, cv=cv, scoring='r2')
+
+    n = len(X_train)  # Total number of observations
+    p = X_train.shape[1]  # Number of predictors
+    cv_r2_adjusted_scores = [
+        1 - ((1 - r2) * (n - 1) / (n - p - 1))
+        for r2 in cv_r2_scores
+    ]
     
     # RMSE to positive
     cv_rmse_scores = -cv_rmse_scores  
 
     # Calculating confidence intervals (95%) for RMSE and R²
     rmse_lower, rmse_upper = np.percentile(cv_rmse_scores, 2.5), np.percentile(cv_rmse_scores, 97.5)
-    r2_lower, r2_upper = np.percentile(cv_r2_scores, 2.5), np.percentile(cv_r2_scores, 97.5)
+    r2_adjusted_lower, r2_adjusted_upper = np.percentile(cv_r2_adjusted_scores, 2.5), np.percentile(cv_r2_adjusted_scores, 97.5)
     
-    return (rmse_lower, rmse_upper), (r2_lower, r2_upper)
+    return (rmse_lower, rmse_upper), (r2_adjusted_lower, r2_adjusted_upper)
