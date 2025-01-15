@@ -88,7 +88,7 @@ To run the model and the API locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ChallengePwC.git
+   git clone https://github.com/Maximo-Verdondoni/ChallengePwC.git
    ```
 
 2. Navigate to the project directory and install the dependencies:
@@ -103,7 +103,8 @@ To run the model and the API locally, follow these steps:
    ```
 
 ## Funcionality
-The work is divided into 2 .ipynb (EDA.ipynb and Model.ipynb) to see the analysis, cleaning and the work done to the dataset to see the model, its metrics and API use Model ipynb
+The work is divided into 2 .ipynb (EDA.ipynb and Model.ipynb) to see the analysis, cleaning and the work done to the dataset open EDA.ipynb 
+To see the model, its metrics and API use Model.ipynb
 You can check the source code of the api in the "api" folder and you can check the source code of the model in "LinearRegression" folder
 
 ## License
